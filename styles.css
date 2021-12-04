@@ -1,0 +1,26 @@
+
+#mainNavbar
+{
+    margin-top: 1rem;
+}
+
+.cadetColor
+{
+    color:cadetblue;
+}
+
+.break
+{
+    margin: 5rem;
+}
+
+.centerText
+{
+    text-align: center;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
