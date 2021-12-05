@@ -24,3 +24,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.noMargin {
+    margin: 0;
+}
+
+.smallMargin {
+    margin: 1rem;
+}
