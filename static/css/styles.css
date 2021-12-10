@@ -32,3 +32,30 @@
 .smallMargin {
     margin: 1rem;
 }
+/*
+#map-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  width: 400px;
+}
+*/
+
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    
+#map {
+    height: 100% !important;
+    padding-bottom: 50%;
+    position: relative;
+    width: 100%;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
