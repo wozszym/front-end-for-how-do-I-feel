@@ -51,8 +51,8 @@ function saveFormResultToLocalStorage(event) {
     addResultToCache(formResult)
 }
 
-const mainForm = document.getElementById("main-form");
-mainForm.addEventListener("submit", saveFormResultToLocalStorage);
+// const mainForm = document.getElementById("main-form");
+//mainForm.addEventListener("submit", saveFormResultToLocalStorage);
 
 
 // return bucket counts and labels
@@ -159,4 +159,5 @@ function handleSubmitButton() {
 
 
 const submitButton = document.getElementById("mainSubmitButton");
+submitButton.addEventListener("click", saveFormResultToLocalStorage);
 submitButton.addEventListener("click", handleSubmitButton);
