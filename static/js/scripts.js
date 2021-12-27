@@ -34,27 +34,6 @@ function addResultToCache(newItem) {
     localStorage.setItem('data', JSON.stringify(items))
 }
 
-function saveFormResultToLocalStorage(event) {
-    event.preventDefault();
-
-    const sex = document.querySelector('input[name="sex"]:checked').value;
-    const country = document.getElementById('country').value
-    const postCode = document.getElementById('postcode').value
-    const generalFeeling = document.getElementById('generalFeeling').value
-
-    const formResult = {
-        sex,
-        country,
-        postCode,
-        generalFeeling
-    }
-    addResultToCache(formResult)
-}
-
-// const mainForm = document.getElementById("main-form");
-//mainForm.addEventListener("submit", saveFormResultToLocalStorage);
-
-
 // return bucket counts and labels
 // Function is not very efective as that logic would be most likely in backend
 function bucketCounts(data, min, max, nBuckets) {
@@ -146,7 +125,7 @@ function displaySimpleHistogram() {
     });
 }
 
-function handleSubmitButton() {
+function handleHistogram() {
     let histogramBox = document.getElementById("histogramBox");
     histogramBox.classList.remove("noDisplay");
 
@@ -157,7 +136,39 @@ function handleSubmitButton() {
     displaySimpleHistogram()
 }
 
+function saveFormDataToLocalCache() {
+    const sex = document.querySelector('input[name="sex"]:checked').value;
+    const country = document.getElementById('country').value
+    const postCode = document.getElementById('postcode').value
+    const generalFeeling = document.getElementById('generalFeeling').value
+
+    const formResult = {
+        sex,
+        country,
+        postCode,
+        generalFeeling
+    }
+
+    addResultToCache(formResult)
+}
+
+function handleSubmitButton(event) {
+    event.preventDefault()
+
+    const warrningBox = document.getElementById("warningBox");
+    warrningBox.classList.add('noDisplay')
+
+    try {
+        saveFormDataToLocalCache()
+        handleHistogram()
+    } catch (e) { // Can only happen (to the current state of knowledge) if sex was not specified
+        console.log(e)
+        warrningBox.innerHTML = 'Please provide Sex value (others are optional)'
+        warrningBox.classList.remove('noDisplay')
+    }
+
+}
+
 
 const submitButton = document.getElementById("mainSubmitButton");
-submitButton.addEventListener("click", saveFormResultToLocalStorage);
 submitButton.addEventListener("click", handleSubmitButton);

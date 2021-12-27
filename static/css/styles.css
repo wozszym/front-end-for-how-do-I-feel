@@ -29,6 +29,10 @@
     margin: 0;
 }
 
+.noMarginBlock {
+    margin-block: 0;
+}
+
 .smallMargin {
     margin: 1rem;
 }
