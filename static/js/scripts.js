@@ -172,3 +172,14 @@ function handleSubmitButton(event) {
 
 const submitButton = document.getElementById("mainSubmitButton");
 submitButton.addEventListener("click", handleSubmitButton);
+
+// cookies info
+$(document).ready(function () {
+    setTimeout(function () {
+        $("#cookieConsent").fadeIn(200)
+    }, 500)
+    $("#closeCookieConsent, .cookieConsentOK").click(function () {
+        $("#cookieConsent").fadeOut(200)
+        localStorage.setItem('agreedToCookies', 'true')
+    })
+})
